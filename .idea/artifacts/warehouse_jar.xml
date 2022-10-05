@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="warehouse:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/warehouse_jar</output-path>
+    <root id="archive" name="warehouse.jar">
+      <element id="module-output" name="warehouse" />
+      <element id="module-output" name="web" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/sun/faces/jsf-impl/2.1.7/jsf-impl-2.1.7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/sun/faces/jsf-api/2.1.7/jsf-api-2.1.7.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
