@@ -28,7 +28,7 @@ public class LoginServlet extends HttpServlet {
 
         out.print("Username: "+ username + "<br/>");
         out.print("Password: "+ password +"<br/>");
-        out.print("Bejelentkezett: "+ authenticated +"<br/>");
+        out.print("Authenticated: "+ authenticated +"<br/>");
 
 
         out.print("</body></html>");
