@@ -1,3 +1,5 @@
 hu\neuron\webapp\servlet\LoginServlet.class
-hu\neuron\webapp\servlet\RedirectServlet.class
 hu\neuron\webapp\filter\LoginFilter.class
+hu\neuron\webapp\api\User.class
+hu\neuron\webapp\servlet\DashboardServlet.class
+hu\neuron\webapp\servlet\LoginServletAsync.class

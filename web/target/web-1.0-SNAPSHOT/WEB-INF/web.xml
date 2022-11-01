@@ -7,20 +7,28 @@
 <display-name>Hello Word</display-name>
 
     <welcome-file-list>
-        <welcome-file>login.html</welcome-file>
+        <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
 
    <servlet>
-        <servlet-name>redirect</servlet-name>
-        <servlet-class>hu.neuron.webapp.servlet.RedirectServlet</servlet-class>
+        <servlet-name>login</servlet-name>
+        <servlet-class>hu.neuron.webapp.servlet.LoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>redirect</servlet-name>
-        <url-pattern>/redirect</url-pattern>
+        <servlet-name>login</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>login-async</servlet-name>
+        <servlet-class>hu.neuron.webapp.servlet.LoginServletAsync</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>login-async</servlet-name>
+        <url-pattern>/login-async</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>secured</servlet-name>
-        <servlet-class>hu.neuron.webapp.servlet.LoginServlet</servlet-class>
+        <servlet-class>hu.neuron.webapp.servlet.DashboardServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>secured</servlet-name>

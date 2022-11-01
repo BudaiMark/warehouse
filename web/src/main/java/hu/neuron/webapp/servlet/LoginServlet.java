@@ -1,15 +1,25 @@
 package hu.neuron.webapp.servlet;
 
+
+import hu.neuron.webapp.api.User;
+import hu.neuron.model.Product;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+
+
+
 
 
 public class LoginServlet extends HttpServlet {
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -18,19 +28,27 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String username = req.getSession().getAttribute("username").toString();
-        String password = req.getSession().getAttribute("password").toString();
-        boolean authenticated =(boolean)req.getSession().getAttribute("authenticated");
-        PrintWriter out = resp.getWriter();
-        //out.println("Felhasználónév: "+username +" jelszó: " + password+ " bejelentkezett: " + authenticated);
-        out.print("<html><body>");
-        out.print("<h3>Adatok</h3><br/>");
+        String username = req.getParameter("username").trim();
+        String password = req.getParameter("password").trim();
 
-        out.print("Username: "+ username + "<br/>");
-        out.print("Password: "+ password +"<br/>");
-        out.print("Authenticated: "+ authenticated +"<br/>");
+        if("admin".equals(username) && "password".equals(password)){
+
+            HttpSession session = req.getSession();
+            User user = new User(username, password);
+            session.setAttribute("user", user);
+            session.setAttribute("username", username);
+            session.setAttribute("password", password);
+            session.setAttribute("authenticated", true);
+            List<Product> products = new ArrayList<>();
+            resp.sendRedirect("secured");
 
 
-        out.print("</body></html>");
+        }else{
+
+            req.setAttribute("error", true);
+            RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
+            rd.forward(req,resp);
+        }
     }
+
 }

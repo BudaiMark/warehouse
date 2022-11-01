@@ -1,5 +1,8 @@
 package hu.neuron.webapp.servlet;
 
+import com.google.gson.Gson;
+import hu.neuron.webapp.api.User;
+
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,8 +14,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 
-public class RedirectServlet extends HttpServlet {
-
+public class LoginServletAsync extends HttpServlet {
+    private Gson gson = new Gson();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -21,22 +24,25 @@ public class RedirectServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String username = req.getParameter("username").trim();
+        String username = req.getParameter("name").trim();
         String password = req.getParameter("password").trim();
 
-        if(username.equals("admin") && password.equals("password")){
+
+        if ("admin".equals(username) && "password".equals(password)) {
 
             HttpSession session = req.getSession();
-            RequestDispatcher rd = req.getRequestDispatcher("secured");
-            session.setAttribute("username", username);
-            session.setAttribute("password", password);
-            session.setAttribute("authenticated", true);
+            User user = new User(username, password);
+            session.setAttribute("user", user);
+            String employeeJsonString = this.gson.toJson(user);
+
+            resp.setContentType("application/json");
+            resp.setCharacterEncoding("UTF-8");
+            resp.getWriter().write(employeeJsonString);
+
+
+        } else {
+            RequestDispatcher rd = req.getRequestDispatcher("login-async.html");
             rd.forward(req, resp);
-
-
-        }else{
-            RequestDispatcher rd = req.getRequestDispatcher("login.html");
-            rd.forward(req,resp);
         }
     }
 

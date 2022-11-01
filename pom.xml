@@ -16,7 +16,8 @@
 
 
     <modules>
-        <module> web </module>
+        <module>web</module>
+        <module>webapi</module>
     </modules>
 <dependencyManagement>
     <dependencies>

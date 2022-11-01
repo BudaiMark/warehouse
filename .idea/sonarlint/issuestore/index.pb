@@ -1,5 +1,18 @@
 
 Q
 !.idea/artifacts/warehouse_jar.xml,6\3\633882176caebbc8e6cb44940183a178b2da1e83
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+_
+/web/src/main/webapp/WEB-INF/pages/warehouse.jsp,f\9\f9e1f7d0ecb85be13b7ce2e13c6e651b98ed739c
+T
+$web/src/main/webapp/login-async.html,0\9\09325fbb244b2461813a16bdd90db6a1ace7046b
+U
+%web/src/main/webapp/css/warehouse.css,2\0\20bb49e46428e7a200678bb9b80aae305498fb5a
+M
+web/src/main/webapp/login.jsp,d\1\d1cad50aa2cac79fcb03cb1349f1043d97562027
+Q
+!web/src/main/webapp/css/login.css,1\8\189355c3c60f7363ea9ba7066a38525d01ae4595
+S
+#web/src/main/webapp/scripts/ajax.js,0\9\096b0a296ceefea67345791c86f4a3324883fe08
