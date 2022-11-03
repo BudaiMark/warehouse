@@ -29,7 +29,9 @@ public class LoginServletAsync extends HttpServlet {
 
 
         if ("admin".equals(username) && "password".equals(password)) {
-
+            /**
+             * Json formátumba adjuk vissza a usert aszinkron kérésnél használva.
+             */
             HttpSession session = req.getSession();
             User user = new User(username, password);
             session.setAttribute("user", user);

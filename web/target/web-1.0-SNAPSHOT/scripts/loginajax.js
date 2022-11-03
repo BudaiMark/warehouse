@@ -1,4 +1,4 @@
-function ajaxfunc() {
+function loginajaxfunc() {
     $(document).ready(function () {
 
             console.log("valami");
@@ -15,7 +15,7 @@ function ajaxfunc() {
                 success: function (data) {
                     console.log("eleje")
                     //$.redirect("/web_war/secured", { name: username, password: userpassword, authenticated: true })
-                    window.location.href="/web_war/secured";
+                    window.location.href="/web_war/dashboard";
                     console.log("vege")
 
                 },

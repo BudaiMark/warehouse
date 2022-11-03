@@ -27,20 +27,36 @@
         <url-pattern>/login-async</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>secured</servlet-name>
+        <servlet-name>dashboard</servlet-name>
         <servlet-class>hu.neuron.webapp.servlet.DashboardServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>secured</servlet-name>
-        <url-pattern>/secured</url-pattern>
+        <servlet-name>dashboard</servlet-name>
+        <url-pattern>/dashboard</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>products</servlet-name>
+        <servlet-class>hu.neuron.webapp.servlet.ProductServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>products</servlet-name>
+        <url-pattern>/api/ProductService/getProducts</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>asyncProducts</servlet-name>
+        <servlet-class>hu.neuron.webapp.servlet.ProductAsyncServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>asyncProducts</servlet-name>
+        <url-pattern>/api/ProductService/getAsyncProducts</url-pattern>
     </servlet-mapping>
     <filter>
-        <filter-name>securedfilter</filter-name>
+        <filter-name>loginFilter</filter-name>
         <filter-class>hu.neuron.webapp.filter.LoginFilter</filter-class>
     </filter>
     <filter-mapping>
-        <filter-name>securedfilter</filter-name>
-        <servlet-name>secured</servlet-name>
+        <filter-name>loginFilter</filter-name>
+        <servlet-name>dashboard</servlet-name>
     </filter-mapping>
 
 

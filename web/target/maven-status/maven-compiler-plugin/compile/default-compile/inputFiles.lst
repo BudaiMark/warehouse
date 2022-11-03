@@ -1,5 +1,7 @@
 C:\Users\Budai Márk\Desktop\warehouse\web\src\main\java\hu\neuron\webapp\servlet\LoginServlet.java
 C:\Users\Budai Márk\Desktop\warehouse\web\src\main\java\hu\neuron\webapp\api\User.java
 C:\Users\Budai Márk\Desktop\warehouse\web\src\main\java\hu\neuron\webapp\servlet\DashboardServlet.java
+C:\Users\Budai Márk\Desktop\warehouse\web\src\main\java\hu\neuron\webapp\servlet\ProductAsyncServlet.java
+C:\Users\Budai Márk\Desktop\warehouse\web\src\main\java\hu\neuron\webapp\servlet\ProductServlet.java
 C:\Users\Budai Márk\Desktop\warehouse\web\src\main\java\hu\neuron\webapp\filter\LoginFilter.java
 C:\Users\Budai Márk\Desktop\warehouse\web\src\main\java\hu\neuron\webapp\servlet\LoginServletAsync.java

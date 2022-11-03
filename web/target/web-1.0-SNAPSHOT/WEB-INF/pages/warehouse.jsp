@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +16,7 @@
     <div class="header">
         <label><b>Warehouse</b></label>
         <div class="buttons">
-            <button><b>Products</b></button>
+            <button onclick="window.location='api/ProductService/getProducts'"><b>Products</b></button>
             <button><b>Orders</b></button>
             <button><b>Profile</b></button>
         </div>

@@ -14,6 +14,10 @@ public class DashboardServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        /**
+         * Elkérjük a sessiont és lekérdezzük a name és password attribútum értékét.
+         */
         HttpSession session = req.getSession();
         String username = (String)session.getAttribute("name");
         String password =  (String)session.getAttribute("password");
