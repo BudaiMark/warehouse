@@ -1,7 +1,7 @@
 package hu.neuron.webapp.servlet;
 
 import com.google.gson.Gson;
-import hu.neuron.webapp.api.User;
+import hu.neuron.dto.User;
 
 
 import javax.servlet.RequestDispatcher;
@@ -24,12 +24,13 @@ public class LoginServletAsync extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //Lekérdezzük a requestnek a paramétereit, és a felesleges elején, hátulján levő szóközöket levágjuk.
         String username = req.getParameter("name").trim();
         String password = req.getParameter("password").trim();
 
 
         if ("admin".equals(username) && "password".equals(password)) {
-            /**
+            /*
              * Json formátumba adjuk vissza a usert aszinkron kérésnél használva.
              */
             HttpSession session = req.getSession();
@@ -42,7 +43,11 @@ public class LoginServletAsync extends HttpServlet {
             resp.getWriter().write(employeeJsonString);
 
 
-        } else {
+        }
+        /*
+        *  továbbirányítjuk a requestet a login-async.html oldalra.
+        */
+        else {
             RequestDispatcher rd = req.getRequestDispatcher("login-async.html");
             rd.forward(req, resp);
         }

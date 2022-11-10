@@ -4,11 +4,11 @@ function productajaxfunc() {
             $.ajax({
                 url: "/web_war/api/ProductService/getAsyncProducts",
                 type: "GET",
+                /*
+                *   Ha sikeres a válasz felépítjük a táblázatot a termékekből
+                */
                 success: function (datas) {
-                    console.log("eleje")
                     $("#productsbody").empty();
-                    console.log(datas)
-                    console.log("vege")
                     $.each(datas, function(i, d) {
                         var row='<tr>';
                         $.each(d, function(j, e) {
@@ -18,10 +18,13 @@ function productajaxfunc() {
                         $('#productsbody').append(row);
                     });
 
-                    console.log("visszatöltött")
                 },
+                /*
+                *  Sikertelenség esetén jelezzük a hibát.
+                */
                 error: function (error) {
-
+                    console.log("Error:");
+                    console.log(error);
                 }
             });
         }

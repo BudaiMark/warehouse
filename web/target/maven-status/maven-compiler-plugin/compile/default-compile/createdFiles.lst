@@ -2,6 +2,7 @@ hu\neuron\webapp\servlet\LoginServlet.class
 hu\neuron\webapp\servlet\ProductAsyncServlet.class
 hu\neuron\webapp\filter\LoginFilter.class
 hu\neuron\webapp\servlet\ProductServlet.class
-hu\neuron\webapp\api\User.class
+hu\neuron\webapp\dao\ProductDAO.class
+hu\neuron\webapp\database_connection\DatabaseConnect.class
 hu\neuron\webapp\servlet\DashboardServlet.class
 hu\neuron\webapp\servlet\LoginServletAsync.class

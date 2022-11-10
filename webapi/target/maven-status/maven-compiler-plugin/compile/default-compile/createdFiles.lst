@@ -1,2 +1,3 @@
-hu\neuron\model\Product.class
-hu\neuron\model\Product$ProductBuilder.class
+hu\neuron\dto\Product$ProductBuilder.class
+hu\neuron\dto\User.class
+hu\neuron\dto\Product.class
