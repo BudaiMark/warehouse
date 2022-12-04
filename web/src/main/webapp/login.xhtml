@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+    <!-- Required meta tags -->
+    <title>Warehouse</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"/>
+    <link  rel="stylesheet" type="text/css" href="css/login.css"/>
+    <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+</head>
+<h:body>
+<div class="block">
+    <h2><i class="fa fa-user icon"></i> User Login </h2>
+    <h:form method="post">
+        <div class="username_input">
+            <label for="username"></label>
+            <br/>
+            <i class='fa fa-user icon' id="username_icon"></i>
+            <h:inputText type="text" id="username" name="username" value="#{login.userName}" onfocus="visibleIcon(this)"
+                   onkeyup="visibleIcon(this)" onfocusout="makeIconVisible(this)"/><br/>
+            <h:message for="username"></h:message>
+        </div>
+        <div class="password_input">
+            <label for="password"></label><br/>
+            <i class="fa fa-key icon" id="password_icon"></i>
+            <h:inputText type="password" id="password" name="password" value="#{login.password}" onfocus="visibleIcon(this)"
+                   onkeyup="visibleIcon(this)" onfocusout="makeIconVisible(this)"/><br/>
+            <h:message for="password"></h:message><br/>
+        </div>
+        <div class="buttons">
+            <h:commandButton styleClass="button" action="#{login.validateUsernamePassword()}" value="Login"></h:commandButton>
+            <input class="forgot_password_button" type="button" value="forgot password"/>
+        </div>
+    </h:form>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        type="text/java"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+         type="text/java"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+       type="text/java"></script>
+<script type="text/javascript">
+    function visibleIcon(e) {
+        console.log(e);
+        console.log(e.value);
+        const myArray = e.id.split(":");
+        var id = myArray[1];
+        console.log(id);
+        var element = document.getElementById(id + "_icon");
+        if (document.activeElement.id == id) {
+            element.style.visibility = "hidden";
+        } else {
+            if (e.value == null || e.value.length == 0) {
+                element.style.visibility = "visible";
+                console.log("Add")
+            } else {
+                console.log("Remove")
+                element.style.visibility = "hidden";
+            }
+        }
+
+
+    }
+
+    function makeIconVisible(e) {
+        const myArray = e.id.split(":");
+        var id = myArray[1];
+        console.log(id);
+        console.log("itt");
+        console.log(e.id);
+        console.log(e.value.length);
+        if (e.value.length > 0) {
+            document.getElementById(id + "_icon").style.visibility = "hidden";
+            console.log("elrejtem")
+        }else{
+            document.getElementById(id + "_icon").style.visibility = "visible";
+            console.log("megjelenitem")
+        }
+    }
+
+
+</script>
+</h:body>
+
+
+
+
+</html>

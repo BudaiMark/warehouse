@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xml:lang="en" lang="en"
+      xmlns:b="http://bootsfaces.net/ui">
+
+<h:body>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../scripts/popup.js"></script>
+    <div id="category">
+        <select id="category_select">
+            <option value="allcategory">all</option>
+        </select>
+    </div>
+    <div id="measure">
+        <select id="measure_select">
+            <option value="allmeasure">all</option>
+        </select>
+    </div>
+    <b:dataTable id="dataTable" value="#{productResponseBean.productResponse}" var="product">
+
+        <b:dataTableColumn value="#{product.name}" label="Name"/>
+        <b:dataTableColumn value="#{product.category}" label="Category"/>
+        <b:dataTableColumn value="#{product.description}" label="Description"/>
+        <b:dataTableColumn value="#{product.unit}" label="Unit"/>
+        <b:dataTableColumn value="#{product.measure}" label="Measure"/>
+        <b:dataTableColumn value="#{product.purchasePrice}" label="Purchase Price"/>
+        <b:dataTableColumn value="#{product.salePrice}" label="Sale Price"/>
+    </b:dataTable>
+    <h:button outcome="#{productResponseBean.previous()}" value="Previous"></h:button>
+    <h:button outcome="#{productResponseBean.next()}" value="Next"></h:button>
+    <h:commandButton type="submit" value="Add" onclick="addProductPopUp()"/>
+
+</h:body>
+</html>

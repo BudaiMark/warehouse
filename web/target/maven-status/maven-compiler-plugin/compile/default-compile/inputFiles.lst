@@ -1,8 +1,7 @@
-C:\Users\Budai Márk\Desktop\warehouse\web\src\main\java\hu\neuron\webapp\servlet\LoginServlet.java
-C:\Users\Budai Márk\Desktop\warehouse\web\src\main\java\hu\neuron\webapp\servlet\DashboardServlet.java
-C:\Users\Budai Márk\Desktop\warehouse\web\src\main\java\hu\neuron\webapp\database_connection\DatabaseConnect.java
-C:\Users\Budai Márk\Desktop\warehouse\web\src\main\java\hu\neuron\webapp\servlet\ProductAsyncServlet.java
-C:\Users\Budai Márk\Desktop\warehouse\web\src\main\java\hu\neuron\webapp\servlet\ProductServlet.java
-C:\Users\Budai Márk\Desktop\warehouse\web\src\main\java\hu\neuron\webapp\dao\ProductDAO.java
-C:\Users\Budai Márk\Desktop\warehouse\web\src\main\java\hu\neuron\webapp\filter\LoginFilter.java
-C:\Users\Budai Márk\Desktop\warehouse\web\src\main\java\hu\neuron\webapp\servlet\LoginServletAsync.java
+C:\Users\Budai Márk\Desktop\warehouse3\web\src\main\java\hu\neuron\webapp\model\ProductResponse.java
+C:\Users\Budai Márk\Desktop\warehouse3\web\src\main\java\hu\neuron\webapp\SessionManager.java
+C:\Users\Budai Márk\Desktop\warehouse3\web\src\main\java\hu\neuron\webapp\bean\ProductResponseBean.java
+C:\Users\Budai Márk\Desktop\warehouse3\web\src\main\java\hu\neuron\webapp\dao\ProductHibernateDAO.java
+C:\Users\Budai Márk\Desktop\warehouse3\web\src\main\java\hu\neuron\webapp\bean\Login.java
+C:\Users\Budai Márk\Desktop\warehouse3\web\src\main\java\hu\neuron\webapp\model\ProductDTO.java
+C:\Users\Budai Márk\Desktop\warehouse3\web\src\main\java\hu\neuron\webapp\bean\ProductBean.java

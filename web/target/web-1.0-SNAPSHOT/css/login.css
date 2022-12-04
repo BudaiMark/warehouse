@@ -39,7 +39,7 @@ body{
     min-width: 300px;
 }
 
-.block form input[type="text"]{
+.block form inputText[type="text"]{
     font-size: 20px;
     min-width: 300px;
     padding-left: 10px;
@@ -51,7 +51,7 @@ body{
 
 
 }
-.block form input[type="password"]{
+.block form inputText[type="password"]{
     font-size: 20px;
     min-width: 300px;
     height: 30px;

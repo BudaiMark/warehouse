@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<h:body>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <h:form method="post">
+
+        <div>
+            <label>Name</label>
+            <br/>
+            <h:inputText type="text" id="name" value="#{productBean.name}" /><br/>
+            <h:message for="name"></h:message>
+        </div>
+        <div>
+            <label>Category</label>
+            <br/>
+            <h:inputText type="text" id="category" value="#{productBean.category}" /><br/>
+            <h:message for="category"></h:message>
+        </div>
+        <div>
+            <label>Description</label>
+            <br/>
+            <h:inputText type="text" id="description" value="#{productBean.description}" /><br/>
+            <h:message for="description"></h:message>
+        </div>
+        <div>
+            <label>Unit</label>
+            <br/>
+            <h:inputText type="text" id="unit" value="#{productBean.unit}" /><br/>
+            <h:message for="unit"></h:message>
+        </div>
+        <div>
+            <label>Measure</label>
+            <br/>
+            <h:inputText type="text" id="measure" value="#{productBean.measure}"/><br/>
+            <h:message for="measure"></h:message>
+        </div>
+        <div>
+            <label>Purchase price</label>
+            <br/>
+            <h:inputText type="text" id="purchasePrice" value="#{productBean.purchasePrice}" /><br/>
+            <h:message for="purchasePrice"></h:message>
+        </div>
+        <div>
+            <label>Sale price</label>
+            <br/>
+            <h:inputText type="text" id="salePrice" value="#{productBean.salePrice}" /><br/>
+            <h:message for="salePrice"></h:message>
+        </div>
+
+        <div class="buttons">
+            <p:commandButton styleClass="button" action="#{productBean.saveProduct()}" value="Save"></p:commandButton>
+
+        </div>
+    </h:form>
+</h:body>
+</html>
