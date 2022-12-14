@@ -19,7 +19,9 @@ public class Login {
     private String userName;
     private String password;
 
-
+/*
+    Validálja a usert felhasználónév, illetve jelszó alapján.
+ */
     public String validateUsernamePassword() {
         if ("admin".equals(userName) && "password".equals(password)) {
                 HttpSession session = SessionManager.getSession();

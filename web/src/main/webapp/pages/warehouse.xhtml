@@ -18,14 +18,16 @@
 <div class="header">
     <label><b>Warehouse</b></label>
     <div class="buttons">
-        <h:button outcome="#{productResponseBean.getAllProducts()}" value="Products"></h:button>
+        <h:form>
+            <h:commandLink action="#{productResponseBean.getAllProducts()}" styleClass="commandLink" value="Products"></h:commandLink>
+        </h:form>
         <button><b>Orders</b></button>
         <button><b>Profile</b></button>
     </div>
 </div>
 <div class="profile">
     <p><b>Profile</b></p>
-    <div class="datas">
+    <div class="data">
         <div>
             <label><b>Name</b></label><br/>
             <label>#{userName}</label>

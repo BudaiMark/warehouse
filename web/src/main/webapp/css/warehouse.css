@@ -36,7 +36,7 @@ button{
     padding-left: 200px;
 
 }
-.datas{
+.data{
     border: black solid thin;
     max-width: 600px;
     background-color: white;
@@ -47,5 +47,21 @@ button{
 
 }
 p{font-size: 22px;}
+
+.commandLink{
+    text-decoration: none !important;
+    font-weight: bold;
+    color: black;
+    font-size: 22px;
+}
+form{
+    display: inline-block;
+}
+.commandLink:hover{
+    color: black;
+
+}
+
+
 
 

@@ -27,16 +27,20 @@ public class ProductBean {
     private Long salePrice;
     private String description;
 
-
-    public void saveProduct(){
+    /*
+    Hívja a DAO-nak a termék lementő függvényét.
+     */
+    public void saveProduct() {
         ProductDTO productDTO = productDTOBuilder();
         ProductHibernateDAO productHibernateDAO = new ProductHibernateDAO();
         productHibernateDAO.addProduct(productDTO);
-        PrimeFaces.current().executeScript("self.close();");
 
     }
 
-    public ProductDTO productDTOBuilder(){
+    /*
+    Felépít egy ProductDTO objektumot.
+     */
+    public ProductDTO productDTOBuilder() {
         return ProductDTO.builder()
                 .name(name)
                 .category(category)

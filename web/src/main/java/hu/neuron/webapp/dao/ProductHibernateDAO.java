@@ -132,6 +132,7 @@ Kategória és mértékegység alapján kérdezzük le az elemek számát.
     /*
     Kategória alapján visszaadjuk a termékeket.
      */
+    //
     public ProductResponse getProductsByCategory(String categoryName, Integer page) {
 
         EntityManager em = emf.createEntityManager();
@@ -141,7 +142,7 @@ Kategória és mértékegység alapján kérdezzük le az elemek számát.
             page = 0;
         }
         try {
-            TypedQuery<ProductDTO> productDTOTypedQuery = em.createQuery("SELECT p FROM ProductDTO p WHERE p.category = ?1", ProductDTO.class);
+            TypedQuery<ProductDTO> productDTOTypedQuery = em.createQuery("SELECT p FROM ProductDTO p WHERE (?1 IS NULL OR p.category = ?1 )", ProductDTO.class);
 
                 productDTOS = productDTOTypedQuery.setParameter(1, categoryName).setFirstResult(page).setMaxResults(1).getResultList();
                 return new ProductResponse(productDTOS, count);
@@ -204,7 +205,7 @@ Kategória és mértékegység alapján kérdezzük le az elemek számát.
     /*
     Lekérdezzük az összes mértékegységet.
      */
-    public List<Long> getProductsMeasure() {
+    public List<Long> getMeasures() {
 
         EntityManager em = emf.createEntityManager();
         try {

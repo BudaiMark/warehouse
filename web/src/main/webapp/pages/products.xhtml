@@ -3,34 +3,102 @@
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xml:lang="en" lang="en"
-      xmlns:b="http://bootsfaces.net/ui">
-
-<h:body>
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
     <script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="../scripts/popup.js"></script>
-    <div id="category">
-        <select id="category_select">
-            <option value="allcategory">all</option>
-        </select>
-    </div>
-    <div id="measure">
-        <select id="measure_select">
-            <option value="allmeasure">all</option>
-        </select>
-    </div>
-    <b:dataTable id="dataTable" value="#{productResponseBean.productResponse}" var="product">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js" type="text/javascript"></script>
+</h:head>
+<h:body>
 
-        <b:dataTableColumn value="#{product.name}" label="Name"/>
-        <b:dataTableColumn value="#{product.category}" label="Category"/>
-        <b:dataTableColumn value="#{product.description}" label="Description"/>
-        <b:dataTableColumn value="#{product.unit}" label="Unit"/>
-        <b:dataTableColumn value="#{product.measure}" label="Measure"/>
-        <b:dataTableColumn value="#{product.purchasePrice}" label="Purchase Price"/>
-        <b:dataTableColumn value="#{product.salePrice}" label="Sale Price"/>
-    </b:dataTable>
-    <h:button outcome="#{productResponseBean.previous()}" value="Previous"></h:button>
-    <h:button outcome="#{productResponseBean.next()}" value="Next"></h:button>
-    <h:commandButton type="submit" value="Add" onclick="addProductPopUp()"/>
+    <h:form id="idform">
+
+        <h:selectOneMenu value="#{productResponseBean.selectedCategory}">
+            <f:selectItem itemValue="all" itemLabel="all"/>
+            <f:selectItems value="#{productResponseBean.categories}" var="category" itemLabel="#{category}" itemValue="#{category}"/>
+        </h:selectOneMenu>
+
+        <h:selectOneMenu value="#{productResponseBean.selectedMeasure}">
+            <f:selectItem itemValue="all" itemLabel="all"/>
+            <f:selectItems value="#{productResponseBean.measures}" var="measure" itemLabel="#{measure}" itemValue="#{measure}"/>
+        </h:selectOneMenu>
+
+        <b:dataTable id="dataTable" value="#{productResponseBean.productResponse}" var="product">
+
+            <b:dataTableColumn value="#{product.name}" label="Name"/>
+            <b:dataTableColumn value="#{product.category}" label="Category"/>
+            <b:dataTableColumn value="#{product.description}" label="Description"/>
+            <b:dataTableColumn value="#{product.unit}" label="Unit"/>
+            <b:dataTableColumn value="#{product.measure}" label="Measure"/>
+            <b:dataTableColumn value="#{product.purchasePrice}" label="Purchase Price"/>
+            <b:dataTableColumn value="#{product.salePrice}" label="Sale Price"/>
+        </b:dataTable>
+        <p:commandButton action="#{productResponseBean.previous()}" update="@form" value="Previous">
+        </p:commandButton>
+        <p:commandButton action="#{productResponseBean.next()}" update="@form" value="Next">
+        </p:commandButton>
+        <p:commandButton action="#{productResponseBean.refresh()}" update="@form" value="Refresh">
+        </p:commandButton>
+       <!-- <h:commandButton type="submit" value="Add" onclick="addProductPopUp()"/>-->
+        <p:commandButton value="Add" type="button"  onclick="PF('addProduct').show();" />
+
+    </h:form>
+    <p:dialog header="Add product" widgetVar="addProduct" minHeight="40" appendTo="@(body)">
+        <h:form method="post">
+
+            <div>
+                <label>Name</label>
+                <br/>
+                <h:inputText type="text" id="name" value="#{productBean.name}"/><br/>
+                <h:message for="name"></h:message>
+            </div>
+            <div>
+                <label>Category</label>
+                <br/>
+                <h:inputText type="text" id="categoryadd" value="#{productBean.category}"/><br/>
+                <h:message for="categoryadd"></h:message>
+            </div>
+            <div>
+                <label>Description</label>
+                <br/>
+                <h:inputText type="text" id="description" value="#{productBean.description}"/><br/>
+                <h:message for="description"></h:message>
+            </div>
+            <div>
+                <label>Unit</label>
+                <br/>
+                <h:inputText type="text" id="unit" value="#{productBean.unit}"/><br/>
+                <h:message for="unit"></h:message>
+            </div>
+            <div>
+                <label>Measure</label>
+                <br/>
+                <h:inputText type="text" id="measureadd" value="#{productBean.measure}"/><br/>
+                <h:message for="measureadd"></h:message>
+            </div>
+            <div>
+                <label>Purchase price</label>
+                <br/>
+                <h:inputText type="text" id="purchasePrice" value="#{productBean.purchasePrice}"/><br/>
+                <h:message for="purchasePrice"></h:message>
+            </div>
+            <div>
+                <label>Sale price</label>
+                <br/>
+                <h:inputText type="text" id="salePrice" value="#{productBean.salePrice}"/><br/>
+                <h:message for="salePrice"></h:message>
+            </div>
+
+            <div class="buttons">
+                <p:commandButton styleClass="button" action="#{productBean.saveProduct()}"
+                                 value="Save" update="idform" oncomplete="PF('addProduct').hide();"></p:commandButton>
+
+            </div>
+        </h:form>
+    </p:dialog>
 
 </h:body>
 </html>
